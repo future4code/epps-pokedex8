@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ErrorPage from "../Screens/ErrorPage/ErrorPage";
 import HomePage from "../Screens/HomePage";
 import PokedexPage from "../Screens/PokedexPage";
 import PokemonDetailsPage from "../Screens/PokemonDetailsPage";
@@ -16,6 +17,9 @@ const Router = () => {
         </Route>
         <Route exact path="/pokemon-details">
           <PokemonDetailsPage />
+        </Route>
+        <Route>
+          <ErrorPage />
         </Route>
       </Switch>
     </BrowserRouter>
