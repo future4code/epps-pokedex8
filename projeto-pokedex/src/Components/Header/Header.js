@@ -1,11 +1,26 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { goToPokedex } from "../../Router/Coordinator";
+import pokelogo from "../../Img/pokedex.png";
+import { HeaderContainer, LogoContainer, Logo } from "./styled";
 
 const Header = () => {
+  const history = useHistory();
   return (
-    <div>
-      <button>Ir para pokedex</button>
-      <h1>Lista de Pokemons</h1>
-    </div>
+    <HeaderContainer>
+      <LogoContainer>
+        <Logo src={pokelogo} alt="logo" />
+      </LogoContainer>
+      <LogoContainer>
+        <button
+          type="button"
+          class="nes-btn is-primary"
+          onClick={() => goToPokedex(history)}
+        >
+          Minha Pokedex
+        </button>
+      </LogoContainer>
+    </HeaderContainer>
   );
 };
 
