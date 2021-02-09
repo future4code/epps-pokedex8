@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 2px #dedede;
+  border-bottom: solid 2px #dedede; padding: 0 35px;
 `;
 
 export const LogoContainer = styled.div`
