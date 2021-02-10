@@ -1,13 +1,27 @@
-import React from "react";
-import Header from "../Components/Header/Header";
+import React, { useContext } from "react";
 import { CardMain } from "../Components/CardPokemon/styled";
+import CardPokemon from "../Components/CardPokemon/CardPokemon";
+import GlobalStateContext from "../Global/GlobalStateContext";
 
 const PokedexPage = () => {
-  
+  const { states, setters, requests } = useContext(GlobalStateContext);
+
   return (
     <div>
       <CardMain>
-        {/* <CardPokemon img={IMG_TESTE} name="Bulbasaur - Z" /> */}
+        {states.pokedexList.length === 0 ? (
+          <p>Carregando...</p>
+        ) : (
+          states.pokedexList.map((pokemon) => {
+            return (
+              <CardPokemon
+                key={pokemon.id}
+                image={pokemon.sprites.front_default}
+                name={pokemon.name}
+              />
+            );
+          })
+        )}
       </CardMain>
     </div>
   );
