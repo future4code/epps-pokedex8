@@ -104,6 +104,11 @@ height: 100%;
 backface-visibility: hidden;
 transform: rotateY(180deg);
 `
+const Image = styled.img`
+border-radius: 10px;
+width: 24vw;
+margin-bottom: 25px;
+`
 
 const PokemonDetailsPage = () => {
   
@@ -112,12 +117,12 @@ const PokemonDetailsPage = () => {
       <ImageOne>
         <Front>
           <h2>Imagem frontal</h2>
-          <img src={ImagePoke} />
+          <Image src={ImagePoke} />
         </Front>
 
         <Back>
         <h2>Imagem de costas</h2>
-          <img src="https://picsum.photos/350" />
+          <Image src="https://picsum.photos/350" />
         </Back>
       </ImageOne>
 
