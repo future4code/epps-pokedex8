@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { goToPokedex } from "../../Router/Coordinator";
-import pokelogo from "../../Img/pokedex.png";
+import pokelogo from "../../assets/pokedex.png";
 import { HeaderContainer, LogoContainer, Logo } from "./styled";
 
 const Header = () => {
