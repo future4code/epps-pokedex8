@@ -4,8 +4,10 @@ import Header from "../Components/Header/Header";
 import CardPokemon from "../Components/CardPokemon/CardPokemon";
 import GlobalStateContext from "../Global/GlobalStateContext";
 
+
 const HomePage = () => {
   const { states, setters, requests } = useContext(GlobalStateContext);
+
 
   useEffect(() => {
     requests.getPokemons();
@@ -20,8 +22,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
-      
       <CardMain>
       {states.pokemonsHome.length === 0 ? (
         <p>Carregando...</p>
@@ -39,6 +39,7 @@ const HomePage = () => {
       )}
       
       </CardMain>
+      
     </>
   );
 };
