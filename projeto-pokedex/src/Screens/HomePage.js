@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { CardMain } from '../Components/CardPokemon/styled'
 import Header from "../Components/Header/Header";
 import CardPokemon from "../Components/CardPokemon/CardPokemon";
 import GlobalStateContext from "../Global/GlobalStateContext";
@@ -18,23 +19,27 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <>
       <Header />
+      
+      <CardMain>
       {states.pokemonsHome.length === 0 ? (
         <p>Carregando...</p>
       ) : (
         states.pokemonsHome.map((pokemon) => {
           return (
-            <CardPokemon
-              key={pokemon.id}
-              image={pokemon.sprites.front_default}
-              name={pokemon.name}
-              addToPokedex={() => addToPokedex(pokemon)}
-            />
+              <CardPokemon
+                key={pokemon.id}
+                image={pokemon.sprites.front_default}
+                name={pokemon.name}
+                addToPokedex={() => addToPokedex(pokemon)}
+              />
           );
         })
       )}
-    </div>
+      
+      </CardMain>
+    </>
   );
 };
 
