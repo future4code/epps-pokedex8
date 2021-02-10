@@ -1,12 +1,12 @@
-import logo from "./logo.svg";
 import React from "react";
 import Router from "../src/Router/Router";
+import GlobalState from "./Global/GlobalState";
 
 function App() {
   return (
-    <div>
+    <GlobalState>
       <Router />
-    </div>
+    </GlobalState>
   );
 }
 
