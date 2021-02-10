@@ -13,7 +13,7 @@ export const CardContainer = styled.div`
   margin: 10px;
   padding: 20px;
   width: 30vh;
-  height: 35vh;
+  height: 36vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,6 +42,12 @@ export const CardName = styled.div`
   width: 100%;
   max-height: 100%;
   margin: 15px 0 7px;
+  padding: 5px;
   letter-spacing: 1px;
   font-family: "Lato";
+`;
+
+export const CardButton = styled.div`
+  display: flex;
+  outline: none;
 `;
