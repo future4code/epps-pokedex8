@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  border: 1px solid red;;
+  border: 1px solid red;
   outline: none !important;
-  cursor: pointer;
   padding: 8px;
   font-weight: bold;
   transition: 0.5s;
@@ -16,7 +15,7 @@ export const Button = styled.button`
   }
 
   width: 100%;
-  border-bottom-left-radius: ${props=>props.radiusBL};
-  border-bottom-right-radius: ${props=>props.radiusBR};
+  border-bottom-left-radius: ${(props) => props.radiusBL};
+  border-bottom-right-radius: ${(props) => props.radiusBR};
   margin-bottom: -9px;
 `;
