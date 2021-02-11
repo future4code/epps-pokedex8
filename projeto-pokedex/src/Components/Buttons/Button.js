@@ -5,7 +5,8 @@ function ButtonProps(props) {
                 bgColor={props.bgColor}
                 radiusBL={props.radiusL}
                 radiusBR={props.radiusR}
-                onClick={props.goToPage}
+                // onClick={props.goToPage}
+                onClick={props.functionButton}
             > {props.title} </Button>
 }
 

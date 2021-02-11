@@ -6,12 +6,7 @@ import GlobalStateContext from "../Global/GlobalStateContext";
 const PokedexPage = () => {
   const { states, setters } = useContext(GlobalStateContext);
 
-  const removeFromPokedex = (newPokemon) => {
-    const index = states.pokedexList.findIndex((i) => i.id === newPokemon.id);
-    const newPokedex = [...states.pokemonsHome, newPokemon];
-    setters.setPokemonsHome(newPokedex);
-    states.pokedexList.splice(index, 1);
-  };
+ 
 
   return (
     <div>
@@ -25,7 +20,7 @@ const PokedexPage = () => {
                 key={pokemon.id}
                 image={pokemon.sprites.front_default}
                 name={pokemon.name}
-                removeFromPokedex={() => removeFromPokedex(pokemon)}
+                pokemon={pokemon}
               />
             );
           })
