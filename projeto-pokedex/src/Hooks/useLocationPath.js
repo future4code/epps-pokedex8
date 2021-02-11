@@ -2,7 +2,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { goToHome, goToPokedex } from "../Router/Coordinator";
 
 const useLocationPath = () => {
-  const history = useHistory()
+  const history = useHistory();
   let location = useLocation();
 
   if (location.pathname === "/") {
@@ -12,7 +12,7 @@ const useLocationPath = () => {
         class="nes-btn is-primary"
         onClick={() => goToPokedex(history)}
       >
-        Lista de Pokedex
+        Minha Pokedex
       </button>
     );
   } else if (location.pathname === "/pokedex") {
@@ -22,7 +22,7 @@ const useLocationPath = () => {
         class="nes-btn is-primary"
         onClick={() => goToHome(history)}
       >
-        Minha Pokedex
+        Lista de Pokemons
       </button>
     );
   } else if (location.pathname === "/pokemon-details") {
@@ -32,7 +32,7 @@ const useLocationPath = () => {
         class="nes-btn is-primary"
         onClick={() => goToHome(history)}
       >
-        Minha Pokedex
+        Lista de Pokemons
       </button>
     );
   } else {
@@ -42,7 +42,7 @@ const useLocationPath = () => {
         class="nes-btn is-primary"
         onClick={() => goToHome(history)}
       >
-        Minha Pokedex
+        Lista de Pokemons
       </button>
     );
   }

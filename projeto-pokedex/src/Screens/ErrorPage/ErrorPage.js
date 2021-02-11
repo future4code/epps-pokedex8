@@ -1,12 +1,11 @@
 import { ErrorContainer, ErrorMain, ImageError, Button } from "./styled";
 import ImageErrorBg from "../../assets/imageErrorPage.png";
-import { goToHome, goToPokedex } from "../../Router/Coordinator";
+import { goToHome } from "../../Router/Coordinator";
 import { useHistory } from "react-router-dom";
 
 export default function ErrorPage() {
-
   const history = useHistory();
-  
+
   return (
     <>
       <ErrorMain>

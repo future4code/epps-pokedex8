@@ -20,22 +20,22 @@ export const ErrorContainer = styled.div`
 export const ImageError = styled.img`
   width: 100%;
   min-width: 350px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 `;
 
 export const Button = styled.button`
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.5s;
-    background-color: royalblue;
-    color: blanchedalmond;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.5s;
+  background-color: royalblue;
+  color: blanchedalmond;
 
-    :hover {
-        background-color: lightslategrey;
-        margin-top: -8px;
-    }
-`
+  :hover {
+    background-color: lightslategrey;
+    margin-top: -8px;
+  }
+`;

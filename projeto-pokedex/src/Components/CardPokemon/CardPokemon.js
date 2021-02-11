@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import GlobalStateContext from "../../Global/GlobalStateContext";
 import { goToPokeDetails } from "../../Router/Coordinator";
-import ButtonProps from "../Buttons/Button";
+import ButtonProps from "../../Components/Buttons/Button";
 import { CardContainer, CardImg, CardName, Img, CardButton } from "./styled";
 
 const CardPokemon = (props) => {
-  const { states, setters, requests } = useContext(GlobalStateContext);
+  const { states, setters } = useContext(GlobalStateContext);
   const { image, name } = props;
   const history = useHistory();
 
@@ -24,11 +24,12 @@ const CardPokemon = (props) => {
     states.pokedexList.splice(index, 1);
   };
 
-
-  const ButtonProps =
+  const ButtonToChange =
     history.location.pathname === "/" ? (
       <ButtonProps
         title="ADD"
+        type="button"
+        class="nes-btn is-primary"
         bgColor="#a02dff"
         radiusL="20px"
         functionButton={() => addToPokedex(props.pokemon)}
@@ -36,6 +37,8 @@ const CardPokemon = (props) => {
     ) : (
       <ButtonProps
         title="REMOVE"
+        type="button"
+        class="nes-btn is-primary"
         bgColor="#a02dff"
         radiusL="20px"
         functionButton={() => removeFromPokedex(props.pokemon)}
@@ -49,13 +52,15 @@ const CardPokemon = (props) => {
       </CardImg>
       <CardName>{name}</CardName>
       <CardButton>
-        {ButtonProps}
+        {ButtonToChange}
         <ButtonProps
           title="INFO"
+          type="button"
+          class="nes-btn is-primary"
           bgColor="#000065"
           radiusR="20px"
           pokemon={props.pokemon}
-          goToPage={() => goToPokeDetails(history)}
+          functionButton={() => goToPokeDetails(history)}
         />
       </CardButton>
     </CardContainer>

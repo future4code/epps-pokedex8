@@ -2,17 +2,21 @@ import React, { useContext } from "react";
 import { CardMain } from "../Components/CardPokemon/styled";
 import CardPokemon from "../Components/CardPokemon/CardPokemon";
 import GlobalStateContext from "../Global/GlobalStateContext";
+import { Loading, PokeballButton, PokeballAnimation } from "./styles";
 
 const PokedexPage = () => {
-  const { states, setters } = useContext(GlobalStateContext);
-
- 
+  const { states } = useContext(GlobalStateContext);
 
   return (
     <div>
       <CardMain>
         {states.pokedexList.length === 0 ? (
-          <p>Carregando...</p>
+          <Loading>
+            <PokeballAnimation>
+              <PokeballButton />
+            </PokeballAnimation>
+            <p>Carregando...</p>
+          </Loading>
         ) : (
           states.pokedexList.map((pokemon) => {
             return (
