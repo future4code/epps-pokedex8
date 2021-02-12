@@ -213,6 +213,7 @@ export const HeaderDetails = styled.div`
   justify-content: flex-end;
   width: 100vw;
   padding: 20px;
+  font-family: "Press Start 2P", cursive;
 `;
 
 export const ContainerPokemon = styled.div`
