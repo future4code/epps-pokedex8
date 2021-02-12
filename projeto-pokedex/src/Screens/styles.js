@@ -93,3 +93,134 @@ export const PokeballButton = styled.div`
     }
   }
 `;
+
+// PokemonDetailsPage
+
+export const ContainerContent = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: "Lato";
+`;
+
+export const ContainerDetails = styled.div`
+  width: 30vw;
+  height: 50vh;
+  margin: 30px;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #423d94;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
+  &:hover {
+    transition: transform 1s;
+    transform: scale(1.01);
+  }
+`;
+
+export const ContainerType = styled.div`
+  width: 30vw;
+  height: 38vh;
+  margin: 30px;
+  font-size: 20px;
+  color: #423d94;
+  background-color: #3f3c93;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
+  background-color: #a3f3ce;
+  &:hover {
+    transition: transform 1s;
+    transform: scale(1.01);
+  }
+`;
+
+export const ImageOne = styled.div`
+  margin: 40px;
+  color: #423d94;
+  background-color: #72c09d;
+  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
+  width: 22vw;
+  height: 62vh;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+  border-radius: 10px;
+  &:hover {
+    transform: rotateY(180deg);
+    transition: transform 1s;
+  }
+`;
+
+export const DivType = styled.div`
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #d6f9eb;
+`;
+
+export const DivMove = styled.div`
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #d6f9eb;
+`;
+
+export const Front = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px;
+  width: 25vw;
+  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+`;
+
+export const Back = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px;
+  width: 25vw;
+  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+`;
+
+export const Image = styled.img`
+  border-radius: 350px;
+  width: 15vw;
+  margin-bottom: 25px;
+  background-color: #d6f9eb;
+`;
+
+export const HeaderDetails = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  padding: 20px;
+`;
+
+export const ContainerPokemon = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Progress = styled.progress`
+  width: 27.5vw;
+  height: 3vh;
+`;

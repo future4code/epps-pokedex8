@@ -10,9 +10,7 @@ export default function useRequestData(url, innitialData) {
       .then((response) => {
         setData(response.data.results);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   }, [url]);
 
   return data;
