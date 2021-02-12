@@ -25,6 +25,7 @@ const PokedexPage = () => {
                 image={pokemon.sprites.front_default}
                 name={pokemon.name}
                 pokemon={pokemon}
+                id={pokemon.id}
               />
             );
           })
