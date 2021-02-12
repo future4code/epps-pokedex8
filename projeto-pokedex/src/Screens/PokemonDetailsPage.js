@@ -79,7 +79,7 @@ const PokemonDetailsPage = () => {
             removeOrAdd(states.pokemon);
           }}
         >
-          Adicionar/RemoverPokedex
+          Adicionar / Remover da Pokedex
         </button>
       </HeaderDetails>
       <ContainerPokemon>
