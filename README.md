@@ -5,12 +5,11 @@ Nome dos integrantes:
 - Franciane Brito
 - José Victor Tiburtino Ferreira
 
-Link do Surge: www.link.com.br
+Link do Surge: http://happy-airplane.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Visualização dos detalhes dos pokemons
+- Adição de pokemons a sua pokedex
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Desafios.
