@@ -25,7 +25,7 @@ const CardPokemon = (props) => {
   };
 
 
-  const ButtonProps =
+  const ButtonPropsT =
     history.location.pathname === "/" ? (
       <ButtonProps
         title="ADD"
@@ -49,7 +49,7 @@ const CardPokemon = (props) => {
       </CardImg>
       <CardName>{name}</CardName>
       <CardButton>
-        {ButtonProps}
+        {ButtonPropsT}
         <ButtonProps
           title="INFO"
           bgColor="#000065"
