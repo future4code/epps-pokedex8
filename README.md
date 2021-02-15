@@ -1,15 +1,17 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Alisson Araujo Marques Moreira
+- Allison Araujo Marques Moreira
 - Franciane Brito
 - José Victor Tiburtino Ferreira
 
-Link do Surge: happy-tank.surge.sh
+Link do Surge: http://happy-tank.surge.sh/
 
 O que funciona:
 - Visualização dos detalhes dos pokemons
 - Adição de pokemons a sua pokedex
+- Remoção de pokemons a sua pokedex
+- responsividade
 
 O que não funciona: 
 - Desafios.
