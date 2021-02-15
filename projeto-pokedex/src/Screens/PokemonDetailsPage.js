@@ -11,7 +11,7 @@ import {
   Image,
   HeaderDetails,
   ContainerPokemon,
-  Progress,
+  Progress, DivContainer
 } from "./styles";
 import { BASE_URL } from "../Constant/Constant";
 import axios from "axios";
@@ -82,6 +82,7 @@ const PokemonDetailsPage = () => {
           Adicionar / Remover da Pokedex
         </button>
       </HeaderDetails>
+
       <ContainerPokemon>
         <ImageOne>
           <Front>
@@ -95,7 +96,7 @@ const PokemonDetailsPage = () => {
           </Back>
         </ImageOne>
 
-        <div>
+        <DivContainer>
           <ContainerDetails>
             <h4>Stats</h4>
             {states.stats.map((stat) => {
@@ -123,7 +124,7 @@ const PokemonDetailsPage = () => {
               })}
             </DivMove>
           </ContainerType>
-        </div>
+        </DivContainer>
       </ContainerPokemon>
     </ContainerContent>
   );

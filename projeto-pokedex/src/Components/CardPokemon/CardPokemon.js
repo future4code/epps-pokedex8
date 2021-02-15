@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import GlobalStateContext from "../../Global/GlobalStateContext";
 import { goToPokeDetails } from "../../Router/Coordinator";
-import ButtonProps from "../../Components/Buttons/Button";
+import ButtonProps from "../../Components/ButtonsCard/Button";
 import { CardContainer, CardImg, CardName, Img, CardButton } from "./styled";
 
 const CardPokemon = (props) => {

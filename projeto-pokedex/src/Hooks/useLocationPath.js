@@ -1,50 +1,23 @@
 import { useHistory, useLocation } from "react-router-dom";
+import Button from "../Components/ButtonHeader/Button";
 import { goToHome, goToPokedex } from "../Router/Coordinator";
 
 const useLocationPath = () => {
+  
+  const ButtonHome = <Button title="Lista de Pokemons" goTo={() => goToHome(history)} />
+  const ButtonPokedex = <Button title="Minha Pokedex" goTo={() => goToPokedex(history)} />
+
   const history = useHistory();
   let location = useLocation();
 
   if (location.pathname === "/") {
-    return (
-      <button
-        type="button"
-        class="nes-btn is-primary"
-        onClick={() => goToPokedex(history)}
-      >
-        Minha Pokedex
-      </button>
-    );
+    return ButtonPokedex;
   } else if (location.pathname === "/pokedex") {
-    return (
-      <button
-        type="button"
-        class="nes-btn is-primary"
-        onClick={() => goToHome(history)}
-      >
-        Lista de Pokemons
-      </button>
-    );
+    return ButtonHome;
   } else if (location.pathname === "/pokemon-details") {
-    return (
-      <button
-        type="button"
-        class="nes-btn is-primary"
-        onClick={() => goToHome(history)}
-      >
-        Lista de Pokemons
-      </button>
-    );
+    return ButtonHome;
   } else {
-    return (
-      <button
-        type="button"
-        class="nes-btn is-primary"
-        onClick={() => goToHome(history)}
-      >
-        Lista de Pokemons
-      </button>
-    );
+    return ButtonHome;
   }
 };
 

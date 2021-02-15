@@ -18,8 +18,8 @@ const Header = () => {
           onClick={() => goToHome(history)}
           class="nes-btn is-primary"
         />
+        {location}
       </LogoContainer>
-      <LogoContainer>{location}</LogoContainer>
     </HeaderContainer>
   );
 };

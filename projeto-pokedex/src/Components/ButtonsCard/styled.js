@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  border: 1px solid red;
+  border: none;
   outline: none !important;
   padding: 8px;
   font-weight: bold;

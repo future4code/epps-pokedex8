@@ -5,6 +5,24 @@ export const CardMain = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 25px;
+
+  @media (max-width: 539px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 540px) and (max-width: 634px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 635px) and (max-width: 767px) {
+    gap: 5px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) and (max-width: 992px){
+    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -20,6 +38,10 @@ export const CardContainer = styled.div`
   align-items: center;
   text-align: center;
   background-color: #a9ffce;
+
+  @media (max-width: 539px) {
+    margin: auto;
+  }
 `;
 
 export const CardImg = styled.div`

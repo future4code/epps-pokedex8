@@ -97,7 +97,6 @@ export const PokeballButton = styled.div`
 // PokemonDetailsPage
 
 export const ContainerContent = styled.div`
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,9 +106,9 @@ export const ContainerContent = styled.div`
 `;
 
 export const ContainerDetails = styled.div`
-  width: 30vw;
-  height: 50vh;
-  margin: 30px;
+  width: 33vw;
+  height: auto;
+  margin: auto;
   color: #ffffff;
   font-size: 20px;
   background-color: #423d94;
@@ -120,23 +119,32 @@ export const ContainerDetails = styled.div`
     transition: transform 1s;
     transform: scale(1.01);
   }
+
+  @media (max-width: 786px) {
+    width: 44vw;
+  }
+
 `;
 
 export const ContainerType = styled.div`
   width: 30vw;
-  height: 38vh;
+  height: auto;
   margin: 30px;
   font-size: 20px;
   color: #423d94;
   background-color: #3f3c93;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
   background-color: #a3f3ce;
   &:hover {
     transition: transform 1s;
     transform: scale(1.01);
   }
+
+  @media (max-width: 786px) {
+    width: 44vw;
+  }
+
 `;
 
 export const ImageOne = styled.div`
@@ -145,7 +153,7 @@ export const ImageOne = styled.div`
   background-color: #72c09d;
   box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
   width: 22vw;
-  height: 62vh;
+  height: 50vh;
   transition: transform 1s;
   transform-style: preserve-3d;
   position: relative;
@@ -154,6 +162,11 @@ export const ImageOne = styled.div`
     transform: rotateY(180deg);
     transition: transform 1s;
   }
+
+  @media (max-width: 786px) {
+    width: 44vw;
+  }
+
 `;
 
 export const DivType = styled.div`
@@ -176,7 +189,6 @@ export const Front = styled.div`
   justify-content: space-around;
   flex-direction: column;
   border-radius: 10px;
-  padding: 20px;
   width: 25vw;
   box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
   position: absolute;
@@ -210,15 +222,38 @@ export const Image = styled.img`
 
 export const HeaderDetails = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100vw;
-  padding: 20px;
+  padding: 30px;
   font-family: "Press Start 2P", cursive;
 `;
 
 export const ContainerPokemon = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
+
+  @media (max-width: 786px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 787px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+export const DivContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 786px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 787px) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
 `;
 
 export const Progress = styled.progress`
