@@ -1,18 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, {  useEffect, useContext } from "react";
 import styled from "styled-components";
 import { BASE_URL } from "../Constant/Constant";
 import axios from "axios"
 import GlobalStateContext from "../Global/GlobalStateContext";
 import { useParams, useHistory } from "react-router-dom";
+import { goToBack } from "../Router/Coordinator"
 
 const ContainerContent = styled.div`
-padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   font-family: "Lato";
+  margin: 0;
+
 `;
 const ContainerDetails = styled.div`
   width: 30vw;
@@ -108,29 +110,30 @@ const Image = styled.img`
   width: 15vw;
   margin-bottom: 25px;
   background-color: #D6F9EB;
-  /* opacity: 0.5; */
 `;
-  const HeaderDetails = styled.div`
-display: flex;
-justify-content: space-between;
-width: 100vw;
-padding: 20px;
-align-items: 
+const HeaderDetails = styled.div`
+  height: 10vh;
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 2px #dedede; 
+  padding: 0 35px;
 `
 const ContainerPokemon = styled.div`
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 `
 const Progress = styled.progress`
-width: 27.5vw;
-height: 3vh;
+  width: 27.5vw;
+  height: 3vh;
 `
-
 const PokemonDetailsPage = () => {
   const params = useParams()
-  const history = useHistory()    
+  const history = useHistory()
   const { states, setters, requests } = useContext(GlobalStateContext);
-  
+
 
   const detailsPokemon = () => {
     axios
@@ -157,34 +160,34 @@ const PokemonDetailsPage = () => {
     requests.getPokemons();
   }, [states, setters, requests]);
 
- 
 
-const removeOrAdd = (newPokemon) => {
 
-  if(states.pokedexList.findIndex((item) => item.id === newPokemon.id)) {
-    console.log("Chamei a função")
-    removeFromPokedex(newPokemon)
-  } else {
-    console.log("Vou remover da pokedex")
-    addToPokedex(newPokemon)
+  const removeOrAdd = (newPokemon) => {
+
+    if (states.pokedexList.findIndex((item) => item.id === newPokemon.id)) {
+      console.log("Chamei a função")
+      removeFromPokedex(newPokemon)
+    } else {
+      console.log("Vou remover da pokedex")
+      addToPokedex(newPokemon)
+    }
   }
-}
 
-const addToPokedex = (newPokemon) => {
-  const index = states.pokemonsHome.findIndex((i) => i.id === newPokemon.id);
-  const newPokedex = [...states.pokedexList, newPokemon];
-  setters.setPokedexList(newPokedex);
-  states.pokemonsHome.splice(index, 1);
-};
-
+  const addToPokedex = (newPokemon) => {
+    const index = states.pokemonsHome.findIndex((i) => i.id === newPokemon.id);
+    const newPokedex = [...states.pokedexList, newPokemon];
+    setters.setPokedexList(newPokedex);
+    states.pokemonsHome.splice(index, 1);
+  };
 
 
-const removeFromPokedex = (newPokemon) => {
-  const index = states.pokedexList.findIndex((i) => i.id === newPokemon.id);
-  const newPokedex = [...states.pokemonsHome, newPokemon];
-  setters.setPokemonsHome(newPokedex);
-  states.pokedexList.splice(0, 1);
-};
+
+  const removeFromPokedex = (newPokemon) => {
+    const index = states.pokedexList.findIndex((i) => i.id === newPokemon.id);
+    const newPokedex = [...states.pokemonsHome, newPokemon];
+    setters.setPokemonsHome(newPokedex);
+    states.pokedexList.splice(0, 1);
+  };
 
   let movesThree = states.moves.slice(0, 3)
 
@@ -192,8 +195,9 @@ const removeFromPokedex = (newPokemon) => {
     <ContainerContent>
 
       <HeaderDetails>
+        <button type="button" class="nes-btn is-primary" onClick={() => { goToBack(history) }}> Voltar</button>
         <h1>{states.name}</h1>
-           <button type="button" class="nes-btn is-success" onClick={() => {removeOrAdd(states.pokemon)}}>Adicionar/RemoverPokedex</button>
+        <button type="button" class="nes-btn is-success" onClick={() => { removeOrAdd(states.pokemon) }}>Adicionar/RemoverPokedex</button>
       </HeaderDetails>
       <ContainerPokemon>
         <ImageOne>
@@ -204,7 +208,7 @@ const removeFromPokedex = (newPokemon) => {
           </Front>
 
           <Back>
-          <h1>{states.name}</h1>
+            <h1>{states.name}</h1>
             <Image src={states.image.back_default} />
           </Back>
         </ImageOne>
