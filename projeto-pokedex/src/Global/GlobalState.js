@@ -9,6 +9,13 @@ const GlobalState = (props) => {
   const [pokemonsHome, setPokemonsHome] = useState([]);
   const pokemonsName = useRequestData(BASE_URL, []);
 
+  const [name, setName] = useState("");
+  const [image, setImage] = useState({});
+  const [stats, setStats] = useState([]);
+  const [types, setTypes] = useState([]);
+  const [moves, setMoves] = useState([]);
+  const [pokemon, setPokemon] = useState();
+
   const getPokemons = async () => {
     let detailsArray = [];
     try {
@@ -16,17 +23,33 @@ const GlobalState = (props) => {
         const response = await axios.get(`${BASE_URL}${pokemon.name}`);
         detailsArray.push(response.data);
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
 
     if (pokemonsHome.length === 0 && pokedexList.length === 0) {
       setPokemonsHome(detailsArray);
     }
   };
 
-  const states = { pokemonsHome, pokedexList };
-  const setters = { setPokemonsHome, setPokedexList };
+  const states = {
+    pokemonsHome,
+    pokedexList,
+    name,
+    image,
+    stats,
+    types,
+    moves,
+    pokemon,
+  };
+  const setters = {
+    setPokemonsHome,
+    setPokedexList,
+    setName,
+    setImage,
+    setStats,
+    setTypes,
+    setMoves,
+    setPokemon,
+  };
   const requests = { getPokemons };
   const data = { states, setters, requests };
 

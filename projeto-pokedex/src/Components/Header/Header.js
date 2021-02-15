@@ -12,9 +12,14 @@ const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer>
-        <Logo src={pokelogo} alt="logo" onClick={() => goToHome(history)} />
+        <Logo
+          src={pokelogo}
+          alt="logo"
+          onClick={() => goToHome(history)}
+          class="nes-btn is-primary"
+        />
+        {location}
       </LogoContainer>
-      <LogoContainer>{location}</LogoContainer>
     </HeaderContainer>
   );
 };

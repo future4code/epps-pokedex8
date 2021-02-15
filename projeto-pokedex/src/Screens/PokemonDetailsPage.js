@@ -1,155 +1,131 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import ImagePoke from "../assets/seta-para-direita.png";
-
-const ContainerContent = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  height: 100vh;
-  font-family: "Lato";
-`;
-
-const ContainerDetails = styled.div`
-  width: 30vw;
-  height: 40vh;
-  margin: 30px;
-  color: #f8cf2d;
-  font-size: 20px;
-  background-color: #423d94;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
-  &:hover {
-    transition: transform 1s;
-    transform: scale(1.01);
-  }
-`;
-const ContainerType = styled.div`
-  width: 30vw;
-  height: 44vh;
-  margin: 30px;
-  font-size: 20px;
-  color: #423d94;
-  background-color: #3f3c93;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
-  background-color: #a3f3ce;
-  &:hover {
-    transition: transform 0.8s;
-    transform: scale(1.01);
-  }
-`;
-const ImageOne = styled.div`
-  margin: 40px;
-  color: #423d94;
-  background-color: #50a7d7;
-  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
-  width: 27vw;
-  height: 70vh;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  position: relative;
-  border-radius: 10px;
-  &:hover {
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-  }
-`;
-
-const DivType = styled.div`
-  margin: 10px;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #d6f9eb;
-`;
-const DivMove = styled.div`
-  margin: 10px;
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #d6f9eb;
-`;
-
-const Front = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: 20px;
-  width: 25vw;
-  height: 65vh;
-  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-`;
-
-const Back = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: 20px;
-  width: 25vw;
-  height: 65vh;
-  box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-`;
-const Image = styled.img`
-  border-radius: 10px;
-  width: 24vw;
-  margin-bottom: 25px;
-`;
+import React, { useEffect, useContext } from "react";
+import {
+  ImageOne,
+  ContainerContent,
+  ContainerDetails,
+  ContainerType,
+  DivType,
+  DivMove,
+  Front,
+  Back,
+  Image,
+  HeaderDetails,
+  ContainerPokemon,
+  Progress, DivContainer
+} from "./styles";
+import { BASE_URL } from "../Constant/Constant";
+import axios from "axios";
+import GlobalStateContext from "../Global/GlobalStateContext";
+import { useParams } from "react-router-dom";
 
 const PokemonDetailsPage = () => {
+  const params = useParams();
+  const { states, setters, requests } = useContext(GlobalStateContext);
+
+  const detailsPokemon = () => {
+    axios
+      .get(`${BASE_URL}${params.id}`)
+      .then((res) => {
+        setters.setName(res.data.species.name);
+        setters.setStats(res.data.stats);
+        setters.setTypes(res.data.types);
+        setters.setMoves(res.data.moves);
+        setters.setImage(res.data.sprites);
+        setters.setPokemon(res.data);
+        console.log(res.data.id);
+      })
+      .catch((error) => {});
+  };
+
+  useEffect(() => {
+    detailsPokemon();
+  }, []);
+
+  useEffect(() => {
+    requests.getPokemons();
+  }, [states, setters, requests]);
+
+  const removeOrAdd = (newPokemon) => {
+    if (states.pokedexList.findIndex((item) => item.id === newPokemon.id)) {
+      removeFromPokedex(newPokemon);
+    } else {
+      addToPokedex(newPokemon);
+    }
+  };
+
+  const addToPokedex = (newPokemon) => {
+    const index = states.pokemonsHome.findIndex((i) => i.id === newPokemon.id);
+    const newPokedex = [...states.pokedexList, newPokemon];
+    setters.setPokedexList(newPokedex);
+    states.pokemonsHome.splice(index, 1);
+  };
+
+  const removeFromPokedex = (newPokemon) => {
+    const index = states.pokedexList.findIndex((i) => i.id === newPokemon.id);
+    const newPokedex = [...states.pokemonsHome, newPokemon];
+    setters.setPokemonsHome(newPokedex);
+    states.pokedexList.splice(index, 1);
+  };
+
+  let movesThree = states.moves.slice(0, 3);
+
   return (
     <ContainerContent>
-      <ImageOne>
-        <Front>
-          <h2>Imagem frontal</h2>
-          <Image src={ImagePoke} />
-        </Front>
+      <HeaderDetails>
+        <button
+          type="button"
+          class="nes-btn is-success"
+          onClick={() => {
+            removeOrAdd(states.pokemon);
+          }}
+        >
+          Adicionar / Remover da Pokedex
+        </button>
+      </HeaderDetails>
 
-        <Back>
-          <h2>Imagem de costas</h2>
-          <Image src="https://picsum.photos/350" />
-        </Back>
-      </ImageOne>
+      <ContainerPokemon>
+        <ImageOne>
+          <Front>
+            <h1>{states.name}</h1>
+            <Image src={states.image.front_default} />
+          </Front>
 
-      <div>
-        <ContainerDetails>
-          <h3>Stats</h3>
-          <p>HP: </p>
-          <p>Attack: </p>
-          <p>Defence: </p>
-          <p>special-attack: </p>
-          <p>special-defence: </p>
-          <p>speed: </p>
-        </ContainerDetails>
+          <Back>
+            <h1>{states.name}</h1>
+            <Image src={states.image.back_default} />
+          </Back>
+        </ImageOne>
 
-        <ContainerType>
-          <DivType>
-            <p>Type 1</p>
-            <p>Type 2</p>
-          </DivType>
+        <DivContainer>
+          <ContainerDetails>
+            <h4>Stats</h4>
+            {states.stats.map((stat) => {
+              return (
+                <div>
+                  <h5>
+                    {stat.stat.name}: {stat.base_stat}
+                  </h5>
+                  <Progress value={stat.base_stat} max="100"></Progress>
+                </div>
+              );
+            })}
+          </ContainerDetails>
 
-          <DivMove>
-            <h3>Moves</h3>
-            <p>move name 1</p>
-            <p>move name 2</p>
-            <p>move name 3</p>
-          </DivMove>
-        </ContainerType>
-      </div>
+          <ContainerType>
+            <DivType>
+              {states.types.map((type) => {
+                return <h3>{type.type.name}</h3>;
+              })}
+            </DivType>
+
+            <DivMove>
+              {movesThree.map((movesT) => {
+                return <h3>{movesT.move.name}</h3>;
+              })}
+            </DivMove>
+          </ContainerType>
+        </DivContainer>
+      </ContainerPokemon>
     </ContainerContent>
   );
 };
