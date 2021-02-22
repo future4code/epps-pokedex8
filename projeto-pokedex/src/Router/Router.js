@@ -9,12 +9,13 @@ import PokemonDetailsPage from "../Screens/PokemonDetailsPage";
 const Router = () => {
   return (
     <BrowserRouter>
-    <Header />
       <Switch>
         <Route exact path="/">
+          <Header />  
           <HomePage />
         </Route>
         <Route exact path="/pokedex">
+          <Header />
           <PokedexPage />
         </Route>
         <Route exact path="/pokemon-details/:id">

@@ -99,14 +99,16 @@ export const PokeballButton = styled.div`
 export const ContainerContent = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   font-family: "Lato";
+  width: 100vw;
 `;
 
 export const ContainerDetails = styled.div`
   width: 33vw;
+
   height: auto;
   margin: auto;
   color: #ffffff;
@@ -121,7 +123,7 @@ export const ContainerDetails = styled.div`
   }
 
   @media (max-width: 786px) {
-    width: 44vw;
+    width: 85vw;
   }
 
 `;
@@ -142,7 +144,7 @@ export const ContainerType = styled.div`
   }
 
   @media (max-width: 786px) {
-    width: 44vw;
+    width: 85vw;
   }
 
 `;
@@ -152,7 +154,7 @@ export const ImageOne = styled.div`
   color: #423d94;
   background-color: #72c09d;
   box-shadow: 0 3px 18px rgb(100 100 100 / 50%);
-  width: 22vw;
+  width: 22vw;  
   height: 50vh;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -164,7 +166,7 @@ export const ImageOne = styled.div`
   }
 
   @media (max-width: 786px) {
-    width: 44vw;
+    width: 85vw;
   }
 
 `;
@@ -218,15 +220,29 @@ export const Image = styled.img`
   width: 15vw;
   margin-bottom: 25px;
   background-color: #d6f9eb;
+  @media (max-width: 768px) {
+  width: 45vw;
+    
+  }
 `;
 
 export const HeaderDetails = styled.div`
   display: flex;
-  justify-content: center;
-  width: 100vw;
+  justify-content: space-between;
   padding: 30px;
   font-family: "Press Start 2P", cursive;
+  width: 100vw;
+  @media (max-width: 786px) {
+  font-family: lato;
+    }
 `;
+
+export const Tytle = styled.h1`
+@media (max-width: 786px) {
+margin: 5px;
+}
+`
+
 
 export const ContainerPokemon = styled.div`
   display: grid;
@@ -245,18 +261,20 @@ export const ContainerPokemon = styled.div`
 export const DivContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   @media (max-width: 786px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   @media (min-width: 787px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:  1fr;
     width: 100%;
   }
 `;
 
 export const Progress = styled.progress`
-  width: 27.5vw;
+  width: 30vw;
   height: 3vh;
+  @media (max-width: 787px) {
+  width: 72.5vw;
+  }
 `;
