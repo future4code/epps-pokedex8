@@ -11,17 +11,18 @@ import {
   Image,
   HeaderDetails,
   ContainerPokemon,
-  Progress, DivContainer
+  Progress, DivContainer, Tytle, Button
 } from "./styles";
 import { BASE_URL } from "../Constant/Constant";
 import axios from "axios";
 import GlobalStateContext from "../Global/GlobalStateContext";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { goToBack } from "../Router/Coordinator"
 
 const PokemonDetailsPage = () => {
   const params = useParams();
   const { states, setters, requests } = useContext(GlobalStateContext);
-
+  const history = useHistory()
   const detailsPokemon = () => {
     axios
       .get(`${BASE_URL}${params.id}`)
@@ -34,7 +35,7 @@ const PokemonDetailsPage = () => {
         setters.setPokemon(res.data);
         console.log(res.data.id);
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
 
   useEffect(() => {
@@ -47,9 +48,9 @@ const PokemonDetailsPage = () => {
 
   const removeOrAdd = (newPokemon) => {
     if (states.pokedexList.findIndex((item) => item.id === newPokemon.id)) {
-      removeFromPokedex(newPokemon);
-    } else {
       addToPokedex(newPokemon);
+    } else {
+      removeFromPokedex(newPokemon);
     }
   };
 
@@ -58,6 +59,8 @@ const PokemonDetailsPage = () => {
     const newPokedex = [...states.pokedexList, newPokemon];
     setters.setPokedexList(newPokedex);
     states.pokemonsHome.splice(index, 1);
+alert("Pokemon adicionado a pokedex")
+
   };
 
   const removeFromPokedex = (newPokemon) => {
@@ -65,13 +68,21 @@ const PokemonDetailsPage = () => {
     const newPokedex = [...states.pokemonsHome, newPokemon];
     setters.setPokemonsHome(newPokedex);
     states.pokedexList.splice(index, 1);
+    alert("Pokemon removido da pokedex")
+
   };
 
   let movesThree = states.moves.slice(0, 3);
 
   return (
     <ContainerContent>
+
+
+
+
       <HeaderDetails>
+        <button type="button" class="nes-btn is-primary" onClick={() => { goToBack(history) }}> Voltar</button>
+        <Tytle>{states.name}</Tytle>
         <button
           type="button"
           class="nes-btn is-success"
@@ -79,7 +90,7 @@ const PokemonDetailsPage = () => {
             removeOrAdd(states.pokemon);
           }}
         >
-          Adicionar / Remover da Pokedex
+          Adicionar / Remover
         </button>
       </HeaderDetails>
 
