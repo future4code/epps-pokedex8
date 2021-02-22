@@ -11,7 +11,7 @@ import {
   Image,
   HeaderDetails,
   ContainerPokemon,
-  Progress, DivContainer, Tytle, Button
+  Progress, DivContainer, Tytle
 } from "./styles";
 import { BASE_URL } from "../Constant/Constant";
 import axios from "axios";
