@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Franciane Brito
 - José Victor Tiburtino Ferreira
 
-Link do Surge: http://happy-tank.surge.sh/
+Link do Surge: tearful-battle.surge.sh
 
 O que funciona:
 - Visualização dos detalhes dos pokemons
